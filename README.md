@@ -1,3 +1,3 @@
 # Twitter
 
--my first React-Native Project
+- ⚡ My first React-Native Project
