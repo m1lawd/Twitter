@@ -4,7 +4,7 @@ import { TweetType } from '@/types';
 
 type TweetProps = {
   tweet: TweetType;
-}
+};
 
 const Tweet = ({tweet}: TweetProps) =>{
 
