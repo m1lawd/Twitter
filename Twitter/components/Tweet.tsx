@@ -10,7 +10,7 @@ type TweetProps = {
 
 const Tweet = ({ tweet }: TweetProps) => {
   return (
-    <Link href={"/tweetPage"} asChild>
+    <Link href={"/Tweet/${tweet.id}"} asChild>
       <Pressable style={styles.container}>
         <Image source={{ uri: tweet.user.image }} style={styles.userImage} />
 
