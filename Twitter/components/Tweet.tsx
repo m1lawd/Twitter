@@ -1,6 +1,6 @@
 import {View , Text, Image, StyleSheet} from 'react-native';
 import { TweetType } from '@/types';
-import { Entypo , EvilIcons} from '@expo/vector-icons';
+import { Entypo} from '@expo/vector-icons';
 import IconButton from './IconButton';
 
 
@@ -12,7 +12,7 @@ const Tweet = ({tweet}: TweetProps) =>{
 
     return(
       <View style={styles.container}>
-        <Image scr={tweet.user.image} style={styles.userImage}/>
+        <Image source={{ uri: tweet.user.image }} style={styles.userImage} />
 
         <View style={styles.mainContainer}>
           <View style={{flexDirection: 'row'}}>
@@ -25,7 +25,7 @@ const Tweet = ({tweet}: TweetProps) =>{
 
           <Text style={styles.content}> {tweet.content} </Text>
 
-          {tweet.image && <Image src={tweet.image} style={styles.image}/>}
+          {tweet.image && <Image source={{uri: tweet.image}} style={styles.image}/>}
 
           <View style={styles.footer}>
             <IconButton icon='comment' text={tweet.numberOfComments}/>

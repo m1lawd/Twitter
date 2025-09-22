@@ -1,18 +1,18 @@
 
 export type User = {
-  id: String;
-  name: String;
-  username: String;
-  image?: String;
+  id: string;
+  name: string;
+  username: string;
+  image?: string;
 }
 
 
 export type TweetType={
-  id: String;
-  content: String;
+  id: string;
+  content: string;
   user: User;
-  createdAt: String;
-  image?: String;
+  createdAt: string;
+  image?: string;
   numberOfComments?: number;
   numberOfRetweets?: number;
   numberOfLikes?: number;
