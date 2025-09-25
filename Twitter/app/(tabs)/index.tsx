@@ -1,23 +1,47 @@
-import { StyleSheet, View, FlatList } from 'react-native';
-import Tweet from '@/components/Tweet';
-import tweets from '@/assets/data/tweets';
-
+import { StyleSheet, View, FlatList, Pressable } from "react-native";
+import Tweet from "@/components/Tweet";
+import tweets from "@/assets/data/tweets";
+import Feather from "@expo/vector-icons/Feather";
+import { Link } from "expo-router";
 
 export default function TabOneScreen() {
   return (
     <View style={styles.page}>
-      <FlatList data={tweets} renderItem={({item}) => <Tweet tweet={item}/>}/>
+      <FlatList
+        data={tweets}
+        renderItem={({ item }) => <Tweet tweet={item} />}
+      />
+      <Pressable style={styles.flootingButton}>
+        <Link href={"/new-tweet"} asChild>
+          <Feather name="plus" size={24} color="white" />
+        </Link>
+      </Pressable>
     </View>
-    
   );
 }
-
 
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: 'white',
-  }
-
+    backgroundColor: "white",
+  },
+  flootingButton: {
+    backgroundColor: "#1c9BF0",
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    right: 15,
+    bottom: 15,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.85,
+    elevation: 5,
+  },
 });
-
