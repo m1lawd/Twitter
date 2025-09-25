@@ -13,6 +13,16 @@ import "react-native-reanimated";
 import { useColorScheme } from "@/components/useColorScheme";
 import { StackScreen } from "react-native-screens";
 
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: "white", // 👈 force white background
+    card: "white", // 👈 header background also white
+    text: "black", // 👈 make sure text stays visible
+  },
+};
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -51,14 +61,13 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === "light" ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={MyTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: "modal" }} />
         <Stack.Screen name="tweet/[id]" options={{ title: "Tweet" }} />
+        <Stack.Screen name="new-tweet" options={{ title: "New Tweet" }} />;
       </Stack>
     </ThemeProvider>
   );
